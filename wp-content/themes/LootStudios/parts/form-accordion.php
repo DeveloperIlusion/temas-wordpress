@@ -20,7 +20,7 @@
             </div>
 
             <div class="row justify-content-end mt-3">
-                <button id="btn-submit-form" class="personalized-button-1">New Item</button>
+                <button type="button" id="btn-submit-form" class="btn personalized-button-1">New Item</button>
             </div>
         </div>
     </div>

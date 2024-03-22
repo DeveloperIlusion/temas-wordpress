@@ -15,12 +15,16 @@
                     </h2>
                     <div id="flush-collapse-<?= $count ?>" class="accordion-collapse collapse" data-bs-parent="#accordion-custom-for-loot-studios">
                         <div class="accordion-body">
-                            <p class="common_text">
-                                <?php the_content(); ?>
-                            </p>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#modal-<?= $count ?>">
-                                View More
-                            </button>
+                            <div class="row">
+                                <p class="common_text">
+                                    <?php the_content(); ?>
+                                </p>
+                            </div>
+                            <div class="row justify-content-end">
+                                <button type="button" class="btn personalized-button-1" data-bs-toggle="modal" data-bs-target="#modal-<?= $count ?>">
+                                    View More
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -45,7 +49,7 @@
                             </p>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn personalized-button-1" data-bs-dismiss="modal">Close</button>
                         </div>
                         </div>
                     </div>
