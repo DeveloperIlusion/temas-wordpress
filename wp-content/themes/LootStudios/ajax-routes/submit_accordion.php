@@ -12,13 +12,29 @@
         ));
 
         if ($post_id && isset($_FILES['thumbnail'])) {
-            $target_dir = wp_get_upload_dir();
-            $target_file = $target_dir['path'] . '/' . basename($_FILES['thumbnail']['name']);
-            
-            if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target_file)) {
-                set_post_thumbnail($post_id, esc_url($target_file));
+            $upload_overrides = array('test_form' => false);
+            $file = wp_handle_upload($_FILES['thumbnail'], $upload_overrides);
+    
+            if (!isset($file['error'])) {
+                $attachment = array(
+                    'post_mime_type' => $file['type'],
+                    'post_title'     => sanitize_file_name($file['file']),
+                    'post_content'   => '',
+                    'post_status'    => 'inherit'
+                );
+    
+                $attach_id = wp_insert_attachment($attachment, $file['file'], $post_id);
+                
+                if (!is_wp_error($attach_id)) {
+                    require_once(ABSPATH . 'wp-admin/includes/image.php');
+                    $attach_data = wp_generate_attachment_metadata($attach_id, $file['file']);
+                    wp_update_attachment_metadata($attach_id, $attach_data);
+                    set_post_thumbnail($post_id, $attach_id);
+                } else {
+                    wp_die('Erro ao anexar a imagem ao post.');
+                }
             } else {
-                wp_die('Erro ao mover a imagem para o diretório de destino.');
+                wp_die($file['error']);
             }
         }
 

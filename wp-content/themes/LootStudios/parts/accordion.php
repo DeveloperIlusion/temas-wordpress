@@ -25,13 +25,13 @@
                     </div>
                 </div>
                 
-                <div class="modal fade" id="modal-<?= $count ?>" tabindex="-1" aria-labelledby="modal-label-<?= $count ?>" aria-hidden="true">
-                    <div class="modal-dialog">
+                <div class="modal fade mt-5 mx-auto" id="modal-<?= $count ?>" tabindex="-1" aria-labelledby="modal-label-<?= $count ?>" aria-hidden="true">
+                    <div class="modal-dialog modal-lg">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <div class="col-12">
-                                    <div class="thumbnail row">
-                                        <?php the_post_thumbnail('large', array('class' => 'img-fluid')); ?>
+                                <div class="col-12 justify-content-center m-0 p-0">
+                                    <div class="row">
+                                        <?php the_post_thumbnail('large', array('class' => 'img-fluid', 'id' => 'modal-thumbnail')); ?>
                                     </div>
                                     <div class="row">
                                         <h1 class="modal-title fs-5" id="modal-label-<?= $count ?>"><?php the_title(); ?></h1>

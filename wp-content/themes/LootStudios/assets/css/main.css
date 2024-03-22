@@ -102,8 +102,30 @@ input::file-selector-button {
     border-bottom-color: #000;
 }
 
+#modal-thumbnail {
+    size: cover;
+    max-height: 20vh;
+    background-position: center 20%;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
 #btn-submit-form {
     width: 25%;
+}
+
+#accordion-section .modal {
+    color: rgb(238, 237, 237);
+    background-color: rgba(0, 0, 0, 0);
+    box-shadow: #000;
+    max-height: min-content;
+    border-radius: 0;
+}
+
+#accordion-section .modal .modal-dialog {
+    border: 1px solid #000;
+    border-radius: 0;
 }
 
 /*
