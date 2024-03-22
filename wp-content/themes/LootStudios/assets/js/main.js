@@ -7,6 +7,14 @@ function isEmpty(str) {
 $('#form-new-accordion-item').on('submit', function(e) {
     e.preventDefault();
 
+    var allowed_extensions = ['jpg', 'jpeg', 'png', 'gif'];
+    var file_extension = $('#thumbnail').val().split('.').pop().toLowerCase();
+
+    if (!allowed_extensions.includes(file_extension)) {
+        alert('Por favor, selecione um arquivo com uma extensão válida. Os tipos aceitos são: PNG, JPG, JPEG e GIF.');
+        return;
+    }
+
     let nonce = $('#nonce').val();
     let title = $('#title').val();
     let content = $('#content').val();
@@ -37,6 +45,9 @@ $('#form-new-accordion-item').on('submit', function(e) {
         contentType: false,
         success: function(response) {
             $('#accordion-section').html(response);
+            $('#title').val('');
+            $('#content').val('');
+            $('#thumbnail').val('');
         },
         error: function(xhr, status, error) {
             console.error(xhr, status, error);

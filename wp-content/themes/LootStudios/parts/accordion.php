@@ -60,8 +60,8 @@
             wp_reset_postdata();
         else:
     ?>
-            <div class="col-12 col-md-6 m-auto">
-                <h1 class="commom_title">Nenhum conteúdo encontrado.</h1>
+            <div class="col-12 text-center">
+                <h1 class="commom_title">No content found.</h1>
             </div>
     <?php
         endif;
