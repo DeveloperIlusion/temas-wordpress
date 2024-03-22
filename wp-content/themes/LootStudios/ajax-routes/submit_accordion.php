@@ -5,18 +5,21 @@
 
     if (isset($_POST['title'], $_POST['content'])) {
         $post_id = wp_insert_post(array(
-            'post_title' => sanitize_text_field($_POST['title']),
+            'post_title'   => sanitize_text_field($_POST['title']),
             'post_content' => wp_kses_post($_POST['content']),
-            'post_type' => 'accordion',
-            'post_status' => 'publish'
+            'post_type'    => 'accordion',
+            'post_status'  => 'publish'
         ));
 
-        
         if ($post_id && isset($_FILES['thumbnail'])) {
-            $target_dir = get_template_directory() . "/../../uploads";
-            $target_file = $target_dir . basename($_FILES['thumbnail']['name']);
-            move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target_file);
-            set_post_thumbnail($post_id, esc_url($target_file));
+            $target_dir = wp_get_upload_dir();
+            $target_file = $target_dir['path'] . '/' . basename($_FILES['thumbnail']['name']);
+            
+            if (move_uploaded_file($_FILES['thumbnail']['tmp_name'], $target_file)) {
+                set_post_thumbnail($post_id, esc_url($target_file));
+            } else {
+                wp_die('Erro ao mover a imagem para o diretório de destino.');
+            }
         }
 
         if ($post_id) {
