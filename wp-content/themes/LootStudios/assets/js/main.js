@@ -1,7 +1,11 @@
 const $ = jQuery;
 
-function isEmpty(str) {
+function is_empty(str) {
     return (!str || str.trim() === '');
+}
+
+function get_file_extension(filename) {
+    return filename.slice((filename.lastIndexOf('.') - 1 >>> 0) + 2);
 }
 
 $('#form-new-accordion-item').on('submit', function(e) {
@@ -20,13 +24,13 @@ $('#form-new-accordion-item').on('submit', function(e) {
     let content = $('#content').val();
     let thumbnail = $('#thumbnail')[0].files[0];
 
-    if (isEmpty(nonce)) {
+    if (is_empty(nonce)) {
         return alert("Recarregue a página.");
     }
-    if (isEmpty(title)) {
+    if (is_empty(title)) {
         return alert("Insira o título.");
     }
-    if (isEmpty(content)) {
+    if (is_empty(content)) {
         return alert("Insira o texto do conteúdo.");
     }
     if (!thumbnail) {
