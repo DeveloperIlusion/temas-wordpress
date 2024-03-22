@@ -28,12 +28,13 @@
                 <div class="modal fade mt-5 mx-auto" id="modal-<?= $count ?>" tabindex="-1" aria-labelledby="modal-label-<?= $count ?>" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header p-0 m-0">
                                 <div class="col-12 justify-content-center m-0 p-0">
-                                    <div class="row">
+                                    <div class="row p-0 m-0">
+                                        <div id="overlay-gradient"></div>
                                         <?php the_post_thumbnail('large', array('class' => 'img-fluid', 'id' => 'modal-thumbnail')); ?>
                                     </div>
-                                    <div class="row">
+                                    <div class="row p-3">
                                         <h1 class="modal-title fs-5" id="modal-label-<?= $count ?>"><?php the_title(); ?></h1>
                                     </div>
                                 </div>
