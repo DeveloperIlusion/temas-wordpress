@@ -139,27 +139,18 @@ input::file-selector-button {
 
 #accordion-section .accordion-item,
 #accordion-section .accordion-button,
-#accordion-section .accordion-header,
-#accordion-section .accordion-body {
+#accordion-section .accordion-header {
     color: var(--primary_commom_text_color);
     box-shadow: none;
     background-color: var(--transparent_background_color);
     transition: background-color 0.3s ease;
 }
 
-#accordion-section .accordion-item:focus,
-#accordion-section .accordion-button:focus,
-#accordion-section .accordion-header:focus,
-#accordion-section .accordion-item:disabled,
-#accordion-section .accordion-button:disabled,
-#accordion-section .accordion-header:disabled,
-#accordion-section .accordion-button:active,
-#accordion-section .accordion-item:active,
-#accordion-section .accordion-header:active,
-#accordion-section .accordion-body {
+#accordion-section .accordion-button[aria-expanded="true"],
+#accordion-section .show .accordion-body {
     background-color: var(--primary_background_color);
     box-shadow: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.5s ease, height 0.5s ease;;
 }
 
 #accordion-section .accordion-header::selection {

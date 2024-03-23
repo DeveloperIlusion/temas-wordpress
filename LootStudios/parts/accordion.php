@@ -28,7 +28,7 @@
                 </div>
                 
                 <div class="modal fade mt-5 mx-auto" id="modal-<?= $count ?>" tabindex="-1" aria-labelledby="modal-label-<?= $count ?>" aria-hidden="true">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog modal-xl">
                         <div class="modal-content p-4">
                             <div class="modal-header m-0 p-0">
                                 <div class="col-12 justify-content-center m-0 p-0">
@@ -56,7 +56,10 @@
         else:
     ?>
             <div class="col-12 text-center">
-                <h1 class="commom_title">No content found.</h1>
+                <br/>
+                <h1 class="commom_title"><i>No content found.</i></h1>
+                <br/>
+                <br/>
             </div>
     <?php
         endif;
