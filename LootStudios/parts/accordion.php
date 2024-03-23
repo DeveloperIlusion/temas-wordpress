@@ -18,7 +18,7 @@
                             <div class="row pt-2 common_text_3">
                                 <?php the_content(); ?>
                             </div>
-                            <div class="row justify-content-end p-0 m-0">
+                            <div class="row justify-content-start p-0 m-0">
                                 <button type="button" class="btn personalized-button-1" data-bs-toggle="modal" data-bs-target="#modal-<?= $count ?>">
                                     View More
                                 </button>

@@ -166,17 +166,21 @@ input::file-selector-button {
     box-shadow: none;
 }
 
-#accordion-section .accordion-button::after,
-#accordion-section .accordion-button::after {
-    border: 1px solid var(--primary_border_color) !important;
+#accordion-section .accordion-button.collapsed::after,
+#accordion-section .accordion-button:not(.collapsed)::after {
+    background-image: url('../images/seta-baixo.png') !important;
+}
+
+#accordion-section .accordion-button.collapsed:hover::after,
+#accordion-section .accordion-button:not(.collapsed):hover::after {
     border-radius: 100%;
+    background-image: url('../images/seta-baixo.png') !important;
+    border-image-slice: 1;
+    background-color: #ffe9c72a !important;
+    box-shadow: 0 0 5px 5px #ffe9c72a !important;
     color: var(--primary_border_color) !important;
+    transition: background-color 0.2s ease-in-out, outline 0.2s ease-in-out;
 }
-
-#accordion-section .accordion-button.collapsed::after {
-    color: var(--primary_border_color) !important;
-}
-
 
 #accordion-section .modal {
     background-color: var(--transparent_background_color);
@@ -209,6 +213,7 @@ input::file-selector-button {
     border-top: 1px solid #ffffff94;
     border-bottom: none;
     border-radius: 0;
+    max-height: min-content;
 }
 
 #accordion-section .modal .modal-dialog .modal-content {
