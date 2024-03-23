@@ -1,11 +1,11 @@
 <form method="post" id="form-new-accordion-item" enctype="multipart/form-data">
     <div class="row text-justify justify-content-center p-0 m-0">
         <div class="col-12 col-md-6">
-            <h1 class="commom_title text-center">Add New Item</h1>
+            <h1 class="commom_title text-center mt-4 mb-2">Add New Item</h1>
             <input type="hidden" id="action" name="action" value="submit_accordion">
             <input type="hidden" id="nonce" name="nonce" value="<?php echo wp_create_nonce('submit_accordion_nonce'); ?>">
             
-            <div class="row mt-3">
+            <div class="row">
                 <label for="title" class="common_text_3 p-0 m-0">Question:</label><br>
                 <input class="" placeholder="Type the question here" type="text" id="title" name="title" required>
             </div>
