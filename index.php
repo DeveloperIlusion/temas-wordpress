@@ -1,17 +1,17 @@
-<?php
-/**
- * Front to the WordPress application. This file doesn't do anything, but loads
- * wp-blog-header.php which does and tells WordPress to load the theme.
- *
- * @package WordPress
- */
+<?php get_header() ?>
+    <div class="content-area">
+        <main>
+            <section id="banner-section">
+                <?= get_template_part('parts/banner', get_post_format()); ?>
+            </section>
 
-/**
- * Tells WordPress to load the WordPress theme and output it.
- *
- * @var bool
- */
-define( 'WP_USE_THEMES', true );
+            <section id="accordion-section">
+                <?= get_template_part('parts/accordion', get_post_format()); ?>
+            </section>
 
-/** Loads the WordPress Environment and Template */
-require __DIR__ . '/wp-blog-header.php';
+            <section id="form-accordion-section" class="mt-5 mb-5">
+                <?= get_template_part('parts/form-accordion', get_post_format()); ?>
+            </section>
+        </main>
+    </div>
+<?php get_footer() ?>
